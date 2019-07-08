@@ -10,15 +10,28 @@
     tools:context=".ServiceActivity">
 
     <Button
+        android:id="@+id/btn_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="启动服务"/>
+
+    <Button
+        android:id="@+id/btn_stop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="关闭服务"/>
+
+
+    <Button
         android:id="@+id/btn_bind"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="客户端-启动服务"/>
+        android:text="启动服务"/>
 
     <Button
         android:id="@+id/btn_unbind"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="客户端-关闭服务"/>
+        android:text="关闭服务"/>
 
 </LinearLayout>

@@ -1,4 +1,5 @@
-package demo.yqy.org.binderandaidl;
+
+package itboy.mylibrary;
 
 import android.content.ComponentName;
 import android.content.Intent;
@@ -9,34 +10,23 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import itboy.mylibrary.IMyAidlInterface;
-
-
-public class MainActivity extends AppCompatActivity {
+public class ServiceActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_service);
 
-        findViewById(R.id.btn_bind).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btn_start).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setAction("test.aidl.service");
-
-                /**
-                 * 主要这个package不是Service所在的报名
-                 */
-                intent.setPackage("demo.yqy.org.binderandaidl.service");
-
+                Intent intent = new Intent(getApplicationContext(), ServiceService.class);
                 boolean succ = bindService(intent, serviceConnection, BIND_AUTO_CREATE);
                 Toast.makeText(getApplicationContext(), "开始绑定 " + succ, Toast.LENGTH_SHORT).show();
-
             }
         });
 
-        findViewById(R.id.btn_unbind).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btn_stop).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 unbindService(serviceConnection);
